@@ -28,7 +28,6 @@ public class Window {
         //Window
         GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MAJOR, 3);
         GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MINOR, 0);
-        GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_CORE_PROFILE);
         GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_FORWARD_COMPAT, GLFW.GLFW_TRUE);
         window = GLFW.glfwCreateWindow(width, height, "Atomic", MemoryUtil.NULL, MemoryUtil.NULL);
 
@@ -58,8 +57,11 @@ public class Window {
         exit();
     }
 
-    public static void exit(){
+    public static void forceExit(){
         GLFW.glfwSetWindowShouldClose(window, true);
+    }
+
+    public static void exit(){
         GLFW.glfwTerminate();
     }
 
