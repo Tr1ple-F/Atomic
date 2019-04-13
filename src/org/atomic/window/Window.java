@@ -1,5 +1,6 @@
 package org.atomic.window;
 
+import org.atomic.utils.ImageUtils;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
@@ -43,6 +44,8 @@ public class Window {
         GL.createCapabilities();
         WindowCallbacks.setResizeCallback(window);
         GLFW.glfwSwapInterval(1);
+        GLFW.glfwSetWindowIcon(window, ImageUtils.icons());
+        GLFW.glfwSetCursor(window, GLFW.glfwCreateCursor(ImageUtils.cursor(), 0, 0));
 
         GL11.glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     }
