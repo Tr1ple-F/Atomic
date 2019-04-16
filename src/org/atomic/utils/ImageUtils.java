@@ -64,16 +64,16 @@ public class ImageUtils {
     }
 
     public static GLFWImage cursor (){
-        GLFWImage cursor = convertToGLFW(crop(readImage("res/icons.png"), 128+64, 0, 32, 32));
+        GLFWImage cursor = convertToGLFW(crop(readImage("res/textures/icons.png"), 128+64, 0, 32, 32));
         return cursor;
     }
 
     public static GLFWImage.Buffer icons(){
         GLFWImage.Buffer icons = GLFWImage.malloc(4);
-        icons.put(convertToGLFW(crop(readImage("res/icons.png"), 128+64+32, 0, 16, 16)));
-        icons.put(convertToGLFW(crop(readImage("res/icons.png"), 128+64, 0, 32, 32)));
-        icons.put(convertToGLFW(crop(readImage("res/icons.png"), 128, 0, 64, 64)));
-        icons.put(convertToGLFW(crop(readImage("res/icons.png"), 0, 0, 128, 128)));
+        icons.put(convertToGLFW(crop(readImage("res/textures/icons.png"), 128+64+32, 0, 16, 16)));
+        icons.put(convertToGLFW(crop(readImage("res/textures/icons.png"), 128+64, 0, 32, 32)));
+        icons.put(convertToGLFW(crop(readImage("res/textures/icons.png"), 128, 0, 64, 64)));
+        icons.put(convertToGLFW(crop(readImage("res/textures/icons.png"), 0, 0, 128, 128)));
         icons.flip();
         return icons;
     }
