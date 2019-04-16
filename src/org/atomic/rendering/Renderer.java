@@ -19,7 +19,7 @@ public class Renderer {
     public void render(RawModel model){
         GL30.glBindVertexArray(model.getVaoID());
         GL20.glEnableVertexAttribArray(0);
-        GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, model.getVertices());
+        GL11.glDrawElements(GL11.GL_TRIANGLES, model.getVertices(), GL11.GL_UNSIGNED_INT, 0);
         GL20.glDisableVertexAttribArray(0);
         GL30.glBindVertexArray(0);
     }

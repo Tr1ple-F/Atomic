@@ -17,11 +17,12 @@ public class Game {
     private static Loader loader = new Loader();
     private static Renderer renderer = new Renderer();
     private static List<RawModel> models = new ArrayList<>();
-    private static float[] vertices = { 0.5f, 0.4f, 0f, -0.2f, -0.5f, 0f, 0.3f, -0.5f, 0f, 0.5f, -0.5f, 0f, 0.5f, 0.7f, 0f, -0.6f, 0.5f, 0f };
+    private static float[] vertices = { -0.5f, 0.5f, 0, -0.5f, -0.5f, 0, 0.5f, -0.5f, 0, 0.5f, 0.5f, 0 };
+    private static int[] indices = { 0, 1, 3, 3, 0, 2};
 
     public static void init(){
         Window.init();
-        models.add(loader.loadToVAO(vertices));
+        models.add(loader.loadToVAO(vertices,indices));
     }
 
     public static void main(){
