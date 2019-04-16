@@ -6,6 +6,8 @@ import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 
+import java.awt.*;
+
 /**
  * Created by Tr1ple-F on the 13.04.2019
  */
@@ -14,8 +16,10 @@ public class Window {
     private static long window;
     private static long context;
     private static long monitor;
+    private static long cursor;
     private static int width = 1920;
     private static int height = 1080;
+    private static float[] nBaseRGB = {0.1f, 0.3f, 0.5f, 1f};
 
     public static void init(){
         //Error
@@ -45,19 +49,13 @@ public class Window {
         WindowCallbacks.setResizeCallback(window);
         GLFW.glfwSwapInterval(1);
         GLFW.glfwSetWindowIcon(window, ImageUtils.icons());
-        GLFW.glfwSetCursor(window, GLFW.glfwCreateCursor(ImageUtils.cursor(), 0, 0));
-
-        GL11.glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        cursor = GLFW.glfwCreateCursor(ImageUtils.cursor(), 0, 0);
+        GLFW.glfwSetCursor(window, cursor);
     }
 
     public static void update(){
-        while(!GLFW.glfwWindowShouldClose(window)){
-            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
-            GLFW.glfwSwapBuffers(window);
-            GLFW.glfwPollEvents();
-        }
-
-        exit();
+        GLFW.glfwSwapBuffers(window);
+        GLFW.glfwPollEvents();
     }
 
     public static void forceExit(){
@@ -65,6 +63,7 @@ public class Window {
     }
 
     public static void exit(){
+        GLFW.glfwDestroyCursor(cursor);
         GLFW.glfwTerminate();
     }
 
@@ -94,5 +93,16 @@ public class Window {
 
     public static void setHeight(int height) {
         Window.height = height;
+    }
+
+    public static void setnBaseRGB(float[] nBaseRGB) {
+        if(nBaseRGB.length != 4){
+            throw new IllegalArgumentException("Unable to force nBaseRBG at Window into format/length: " + nBaseRGB.length);
+        }
+        Window.nBaseRGB = nBaseRGB;
+    }
+
+    public static float[] getnBaseRGB() {
+        return nBaseRGB;
     }
 }
