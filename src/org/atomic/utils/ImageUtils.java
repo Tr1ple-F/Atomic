@@ -64,8 +64,7 @@ public class ImageUtils {
     }
 
     public static GLFWImage cursor (){
-        GLFWImage cursor = GLFWImage.malloc();
-        cursor = convertToGLFW(crop(readImage("res/icons.png"), 128+64, 0, 32, 32));
+        GLFWImage cursor = convertToGLFW(crop(readImage("res/icons.png"), 128+64, 0, 32, 32));
         return cursor;
     }
 
