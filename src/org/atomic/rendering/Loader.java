@@ -24,8 +24,8 @@ public class Loader {
     public RawModel loadToVAO(float[] data, float[] texC, int[] indices){
         int vaoID = createVAO();
         bindIndicesBuffer(indices);
-        storeDataInAtrributeList(0, 3, data);
-        storeDataInAtrributeList(1, 2, texC);
+        storeDataInAttributeList(0, 3, data);
+        storeDataInAttributeList(1, 2, texC);
         unbindVAO();
         return new RawModel(vaoID, indices.length);
     }
@@ -50,7 +50,7 @@ public class Loader {
         return vaoID;
     }
 
-    private void storeDataInAtrributeList(int attrNumber, int size, float[] data){
+    private void storeDataInAttributeList(int attrNumber, int size, float[] data){
         int vboID = GL15.glGenBuffers();
         vbos.add(vboID);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vboID);

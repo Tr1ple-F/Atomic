@@ -23,6 +23,7 @@ public class Game {
 
         Loader loader = new Loader();
         Renderer renderer = new Renderer();
+        renderer.init();
         StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
         RawModel model = loader.loadToVAO(vertices,texC, indices);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));

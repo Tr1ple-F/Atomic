@@ -3,10 +3,7 @@ package org.atomic.window;
 import org.atomic.utils.ImageUtils;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
-import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
-
-import java.awt.*;
 
 /**
  * Created by Tr1ple-F on the 13.04.2019
