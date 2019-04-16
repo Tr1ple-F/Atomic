@@ -1,54 +1,43 @@
 package org.atomic.game;
 
 import org.atomic.model.RawModel;
+import org.atomic.model.TexturedModel;
 import org.atomic.rendering.Loader;
 import org.atomic.rendering.Renderer;
 import org.atomic.shaders.StaticShader;
+import org.atomic.textures.ModelTexture;
 import org.atomic.window.Window;
 import org.lwjgl.glfw.GLFW;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Tr1ple-F on the 13.04.2019
  */
 public class Game {
 
-    private static Loader loader;
-    private static Renderer renderer;
-    private static StaticShader shader;
-    private static List<RawModel> models = new ArrayList<>();
     private static float[] vertices = { -0.5f, 0.5f, 0, -0.5f, -0.5f, 0, 0.5f, -0.5f, 0, 0.5f, 0.5f, 0 };
-    private static int[] indices = { 0, 1, 3, 3, 1, 2};
-
-    public static void init(){
-        Window.init();
-
-        loader = new Loader();
-        renderer = new Renderer();
-        shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
-
-        models.add(loader.loadToVAO(vertices,indices));
-    }
+    private static int[] indices = { 0, 1, 3, 2, 0, 3};
+    private static float[] texC = { 0, 0, 0, 1, 1, 1, 1, 0};
 
     public static void main(){
+        Window.init();
+
+        Loader loader = new Loader();
+        Renderer renderer = new Renderer();
+        StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
+        RawModel model = loader.loadToVAO(vertices,texC, indices);
+        ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
+        TexturedModel tM = new TexturedModel(model, texture);
+
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
             renderer.prepare();
             shader.start();
-            for (RawModel model : models){
-                renderer.render(model);
-            }
+            renderer.render(tM);
             shader.stop();
             Window.update();
         }
-        exit();
-    }
 
-    public static void exit(){
         Window.exit();
         loader.clean();
-
     }
 
 }

@@ -1,9 +1,12 @@
 package org.atomic.rendering;
 
 import org.atomic.model.RawModel;
+import org.atomic.utils.ImageUtils;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.*;
 
+import java.awt.image.BufferedImage;
+import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -16,13 +19,28 @@ public class Loader {
 
     private static List<Integer> vaos = new ArrayList<>();
     private static List<Integer> vbos = new ArrayList<>();
+    private static List<Integer> textures = new ArrayList<>();
 
-    public RawModel loadToVAO(float[] data, int[] indices){
+    public RawModel loadToVAO(float[] data, float[] texC, int[] indices){
         int vaoID = createVAO();
         bindIndicesBuffer(indices);
-        storeDataInAtrributeList(0, data);
+        storeDataInAtrributeList(0, 3, data);
+        storeDataInAtrributeList(1, 2, texC);
         unbindVAO();
         return new RawModel(vaoID, indices.length);
+    }
+
+    public int loadTexture(String fileName){
+        int texID = GL11.glGenTextures();
+        GL13.glActiveTexture(GL13.GL_TEXTURE0);
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, texID);
+        GL11.glPixelStorei(GL11.GL_UNPACK_ALIGNMENT, 1);
+        BufferedImage texture = ImageUtils.readImage(fileName);
+        ByteBuffer byteBuffer = ImageUtils.convertToByteBuffer(texture);
+        GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGBA, texture.getWidth(), texture.getHeight(), 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, byteBuffer);
+        GL30.glGenerateMipmap(GL11.GL_TEXTURE_2D);
+        textures.add(texID);
+        return texID;
     }
 
     private int createVAO(){
@@ -32,13 +50,13 @@ public class Loader {
         return vaoID;
     }
 
-    private void storeDataInAtrributeList(int attrNumber, float[] data){
+    private void storeDataInAtrributeList(int attrNumber, int size, float[] data){
         int vboID = GL15.glGenBuffers();
         vbos.add(vboID);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vboID);
         FloatBuffer buffer = convertToFloatBuffer(data);
         GL15.glBufferData(GL15.GL_ARRAY_BUFFER, buffer, GL15.GL_STATIC_DRAW);
-        GL20.glVertexAttribPointer(attrNumber, 3, GL11.GL_FLOAT, false, 0, 0);
+        GL20.glVertexAttribPointer(attrNumber, size, GL11.GL_FLOAT, false, 0, 0);
         GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0);
     }
 
@@ -74,6 +92,9 @@ public class Loader {
         }
         for(int vbo : vbos){
             GL15.glDeleteBuffers(vbo);
+        }
+        for(int texture : textures){
+            GL11.glDeleteTextures(texture);
         }
     }
 

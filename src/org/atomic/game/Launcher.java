@@ -6,7 +6,6 @@ package org.atomic.game;
 public class Launcher {
 
     public static void main(String[] args) {
-        Game.init();
         Game.main();
     }
 

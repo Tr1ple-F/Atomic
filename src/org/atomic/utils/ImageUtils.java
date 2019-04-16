@@ -44,7 +44,7 @@ public class ImageUtils {
         return bI.getSubimage(x0, y0, width, height);
     }
 
-    public static GLFWImage convertToGLFW(BufferedImage bufferedImage){
+    public static ByteBuffer convertToByteBuffer(BufferedImage bufferedImage){
         int imwidth = bufferedImage.getWidth();
         int imheight = bufferedImage.getHeight();
         ByteBuffer pixels = BufferUtils.createByteBuffer(imwidth * imheight * 4);
@@ -58,8 +58,12 @@ public class ImageUtils {
             }
         }
         pixels.flip();
+        return pixels;
+    }
+
+    public static GLFWImage convertToGLFW(BufferedImage bufferedImage){
         GLFWImage image = GLFWImage.malloc();
-        image.set(imwidth, imheight, pixels);
+        image.set(bufferedImage.getWidth(), bufferedImage.getHeight(), convertToByteBuffer(bufferedImage));
         return image;
     }
 
