@@ -32,7 +32,7 @@ public class Game {
         RawModel model = loader.loadToVAO(vertices,texC, indices);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
         TexturedModel tM = new TexturedModel(model, texture);
-        Entity entity = new Entity(tM, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
+        Entity entity = new Entity(tM, new Vector3f(0, 0, -1), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
 
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
             Window.update();
