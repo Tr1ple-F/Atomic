@@ -25,7 +25,7 @@ public class Game {
 
         Loader loader = new Loader();
         StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
-        Renderer renderer = new Renderer(shader);
+        Renderer renderer = new Renderer(shader, 90, 0.1f, 1000);
         RawModel model = loader.loadToVAO(vertices,texC, indices);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
         TexturedModel tM = new TexturedModel(model, texture);
@@ -35,7 +35,7 @@ public class Game {
             renderer.prepare();
             shader.start();
             renderer.render(entity);
-            entity.increaseScale(0.01f, -0.01f, 0f);
+            entity.increaseTranslation(0f, 0f, -0.1f);
             shader.stop();
             Window.update();
         }

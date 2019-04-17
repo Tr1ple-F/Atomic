@@ -18,9 +18,20 @@ import org.lwjgl.opengl.GL30;
 public class Renderer {
 
     private StaticShader shaderProgram;
+    private final float FOV;
+    private final float NEAR_PLANE;
+    private final float FAR_PLANE;
+    private Matrix4f projectionMatrix;
 
-    public Renderer(StaticShader shaderProgram){
+    public Renderer(StaticShader shaderProgram, float FOV, float NEAR_PLANE, float FAR_PLANE) {
         this.shaderProgram = shaderProgram;
+        this.FOV = FOV;
+        this.NEAR_PLANE = NEAR_PLANE;
+        this.FAR_PLANE = FAR_PLANE;
+        projectionMatrix = Maths.createProjectionMatrix(FOV, NEAR_PLANE, FAR_PLANE);
+        shaderProgram.start();
+        shaderProgram.loadProjectionMatrix(projectionMatrix);
+        shaderProgram.stop();
     }
 
     public void prepare(){
@@ -44,4 +55,19 @@ public class Renderer {
         GL30.glBindVertexArray(0);
     }
 
+    public float getFOV() {
+        return FOV;
+    }
+
+    public float getNEAR_PLANE() {
+        return NEAR_PLANE;
+    }
+
+    public float getFAR_PLANE() {
+        return FAR_PLANE;
+    }
+
+    public Matrix4f getProjectionMatrix() {
+        return projectionMatrix;
+    }
 }
