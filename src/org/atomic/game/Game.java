@@ -6,7 +6,10 @@ import org.atomic.rendering.Loader;
 import org.atomic.rendering.Renderer;
 import org.atomic.shaders.StaticShader;
 import org.atomic.textures.ModelTexture;
+import org.atomic.utils.Maths;
 import org.atomic.window.Window;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 
 /**
@@ -23,15 +26,16 @@ public class Game {
 
         Loader loader = new Loader();
         Renderer renderer = new Renderer();
-        renderer.init();
         StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
         RawModel model = loader.loadToVAO(vertices,texC, indices);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
         TexturedModel tM = new TexturedModel(model, texture);
+        Matrix4f m = Maths.createTransformationMatrix(new Vector3f(0, 0, 0), 0, 0, 0, 1);
 
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
             renderer.prepare();
             shader.start();
+            shader.loadTransformationMatrix(m);
             renderer.render(tM);
             shader.stop();
             Window.update();

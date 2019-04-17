@@ -1,6 +1,8 @@
 package org.atomic.shaders;
 
 import org.atomic.utils.ShaderUtils;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 
@@ -16,8 +18,16 @@ public abstract class ShaderProgram {
         programID = GL20.glCreateProgram();
         GL20.glAttachShader(programID, vertexShaderID);
         GL20.glAttachShader(programID, fragmentShaderID);
+        bindAttributes();
         GL20.glLinkProgram(programID);
         GL20.glValidateProgram(programID);
+        getAllUniformLocations();
+    }
+
+    protected abstract void getAllUniformLocations();
+
+    protected int getUniformLocation(String uniformName){
+        return GL20.glGetUniformLocation(programID, uniformName);
     }
 
     public void start(){
@@ -41,6 +51,26 @@ public abstract class ShaderProgram {
 
     protected void bindAttribute(int attribute, String variableName){
         GL20.glBindAttribLocation(programID, attribute, variableName);
+    }
+
+    protected void loadFloat(int location, float value){
+        GL20.glUniform1f(location, value);
+    }
+
+    protected void loadVector(int location, Vector3f value){
+        GL20.glUniform3f(location, value.x, value.y, value.z);
+    }
+
+    protected void loadBoolean(int location, boolean value){
+        float toLoad = 0;
+        if(value){
+            toLoad = 1;
+        }
+        GL20.glUniform1f(location, toLoad);
+    }
+
+    protected void loadMatrix(int location, Matrix4f value){
+        GL20.glUniformMatrix4fv(location, false, ShaderUtils.loadMatrix4f(value));
     }
 
     private static int loadShader(String file, int type){
