@@ -4,6 +4,7 @@ import org.atomic.entities.Entity;
 import org.atomic.model.RawModel;
 import org.atomic.model.TexturedModel;
 import org.atomic.shaders.StaticShader;
+import org.atomic.textures.ModelTexture;
 import org.atomic.utils.Maths;
 import org.atomic.window.Window;
 import org.joml.Matrix4f;
@@ -50,6 +51,8 @@ public class Renderer {
         GL20.glEnableVertexAttribArray(2);
         Matrix4f m = Maths.createTransformationMatrix(entity.getTranslation(), entity.getRotation(), entity.getScale());
         shaderProgram.loadTransformationMatrix(m);
+        ModelTexture texture = texturedModel.getTexture();
+        shaderProgram.loadShineValues(texture.getShineDamper(), texture.getReflectivity());
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, texturedModel.getTexture().getTextureID());
         GL11.glDrawElements(GL11.GL_TRIANGLES, model.getVertices(), GL11.GL_UNSIGNED_INT, 0);

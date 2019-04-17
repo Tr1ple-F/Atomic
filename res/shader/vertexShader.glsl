@@ -7,6 +7,7 @@ in vec3 normal;
 out vec2 passTC;
 out vec3 surfaceNormal;
 out vec3 lightVector;
+out vec3 cameraVector;
 
 uniform mat4 transformationMatrix;
 uniform mat4 projectionMatrix;
@@ -19,7 +20,8 @@ void main(void) {
     gl_Position = projectionMatrix * viewMatrix * world_position;
     passTC = textureCoord;
 
-    surfaceNormal = (transformationMatrix * vec4(normal, 1.0)).xyz;
+    surfaceNormal = (transformationMatrix * vec4(normal, 0.0)).xyz;
     lightVector = lightPosition - world_position.xyz;
+    cameraVector = (inverse(viewMatrix) * vec4(0.0, 0.0, 0.0, 1.0)).xyz - world_position.xyz;
 
 }

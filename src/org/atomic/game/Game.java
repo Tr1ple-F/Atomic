@@ -30,9 +30,11 @@ public class Game {
         Renderer renderer = new Renderer(shader, 90, 0.1f, 1000);
         RawModel model = OBJLoader.loadObjModel("res/models/dragon.obj", loader);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
+        texture.setReflectivity(1);
+        texture.setShineDamper(10);
         TexturedModel tM = new TexturedModel(model, texture);
-        Entity entity = new Entity(tM, new Vector3f(0, -5, -5), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
-        Light light = new Light(new Vector3f(0, 0, -4), new Vector3f(1, 1, 1));
+        Entity entity = new Entity(tM, new Vector3f(0, 0, -25), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
+        Light light = new Light(new Vector3f(200, 200, 100), new Vector3f(0.8f, 0.8f, 0.8f));
 
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
             Window.update();
@@ -42,7 +44,7 @@ public class Game {
             shader.loadLight(light);
             shader.loadViewMatrix(Maths.createViewMatrix(camera));
             renderer.render(entity);
-            entity.increaseRotation(-0.01f, 1f,0f);
+            entity.increaseRotation(0f, 1f,0f);
 
             shader.stop();
         }
