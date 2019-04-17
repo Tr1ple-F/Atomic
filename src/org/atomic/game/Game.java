@@ -1,16 +1,10 @@
 package org.atomic.game;
 
-import org.atomic.entities.Camera;
-import org.atomic.entities.Entity;
-import org.atomic.entities.Light;
+import org.atomic.entities.*;
 import org.atomic.model.RawModel;
 import org.atomic.model.TexturedModel;
-import org.atomic.rendering.Loader;
-import org.atomic.rendering.OBJLoader;
-import org.atomic.rendering.Renderer;
-import org.atomic.shaders.StaticShader;
+import org.atomic.rendering.*;
 import org.atomic.textures.ModelTexture;
-import org.atomic.utils.Maths;
 import org.atomic.window.Window;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -25,30 +19,30 @@ public class Game {
     public static void main(){
         Window.init();
 
+        //Model
         Loader loader = new Loader();
-        StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
-        Renderer renderer = new Renderer(shader, 90, 0.1f, 1000);
         RawModel model = OBJLoader.loadObjModel("res/models/dragon.obj", loader);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
         texture.setReflectivity(1);
         texture.setShineDamper(10);
         TexturedModel tM = new TexturedModel(model, texture);
-        Entity entity = new Entity(tM, new Vector3f(0, 0, -25), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
+
+        //Entities
+        Entity entity = new Entity(tM, new Vector3f(0, -2, -5), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
         Light light = new Light(new Vector3f(200, 200, 100), new Vector3f(0.8f, 0.8f, 0.8f));
 
+        //Renderer
+        MasterRenderer masterRenderer = new MasterRenderer();
+
+        //Game loop
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
             Window.update();
-
-            renderer.prepare();
-            shader.start();
-            shader.loadLight(light);
-            shader.loadViewMatrix(Maths.createViewMatrix(camera));
-            renderer.render(entity);
-            entity.increaseRotation(0f, 1f,0f);
-
-            shader.stop();
+            masterRenderer.processEntity(entity);
+            masterRenderer.render(light, camera);
         }
 
+        //Clean
+        masterRenderer.cleanUp();
         Window.exit();
         loader.clean();
     }
