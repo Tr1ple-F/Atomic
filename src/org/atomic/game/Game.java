@@ -1,14 +1,13 @@
 package org.atomic.game;
 
+import org.atomic.entities.Entity;
 import org.atomic.model.RawModel;
 import org.atomic.model.TexturedModel;
 import org.atomic.rendering.Loader;
 import org.atomic.rendering.Renderer;
 import org.atomic.shaders.StaticShader;
 import org.atomic.textures.ModelTexture;
-import org.atomic.utils.Maths;
 import org.atomic.window.Window;
-import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 
@@ -25,18 +24,18 @@ public class Game {
         Window.init();
 
         Loader loader = new Loader();
-        Renderer renderer = new Renderer();
         StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
+        Renderer renderer = new Renderer(shader);
         RawModel model = loader.loadToVAO(vertices,texC, indices);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
         TexturedModel tM = new TexturedModel(model, texture);
-        Matrix4f m = Maths.createTransformationMatrix(new Vector3f(0, 0, 0), 0, 0, 0, 1);
+        Entity entity = new Entity(tM, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
 
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
             renderer.prepare();
             shader.start();
-            shader.loadTransformationMatrix(m);
-            renderer.render(tM);
+            renderer.render(entity);
+            entity.increaseScale(0.01f, -0.01f, 0f);
             shader.stop();
             Window.update();
         }
