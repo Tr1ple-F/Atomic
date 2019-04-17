@@ -5,6 +5,7 @@ import org.atomic.entities.Entity;
 import org.atomic.model.RawModel;
 import org.atomic.model.TexturedModel;
 import org.atomic.rendering.Loader;
+import org.atomic.rendering.OBJLoader;
 import org.atomic.rendering.Renderer;
 import org.atomic.shaders.StaticShader;
 import org.atomic.textures.ModelTexture;
@@ -19,9 +20,6 @@ import org.lwjgl.glfw.GLFW;
 public class Game {
 
     public static Camera camera = new Camera(new Vector3f(0, 0, 0));
-    private static float[] vertices = { -0.5f, 0.5f, 0, -0.5f, -0.5f, 0, 0.5f, -0.5f, 0, 0.5f, 0.5f, 0 };
-    private static int[] indices = { 0, 1, 3, 2, 0, 3};
-    private static float[] texC = { 0, 0, 0, 1, 1, 1, 1, 0};
 
     public static void main(){
         Window.init();
@@ -29,7 +27,7 @@ public class Game {
         Loader loader = new Loader();
         StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
         Renderer renderer = new Renderer(shader, 90, 0.1f, 1000);
-        RawModel model = loader.loadToVAO(vertices,texC, indices);
+        RawModel model = OBJLoader.loadObjModel("res/models/custom.obj", loader);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
         TexturedModel tM = new TexturedModel(model, texture);
         Entity entity = new Entity(tM, new Vector3f(0, 0, -1), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
@@ -41,6 +39,7 @@ public class Game {
             shader.start();
             shader.loadViewMatrix(Maths.createViewMatrix(camera));
             renderer.render(entity);
+            entity.increaseRotation(-0.01f, 1f,0f);
 
             shader.stop();
         }
