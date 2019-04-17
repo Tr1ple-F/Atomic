@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1994193-c46d-40dd-ab30-4a477c939327" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/org/atomic/utils/Maths.java" afterDir="false" />
+    <list default="true" id="f1994193-c46d-40dd-ab30-4a477c939327" name="Default" comment="Per-Pixel Lighting">
+      <change afterPath="$PROJECT_DIR$/res/models/dragon.obj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/org/atomic/entities/Light.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Atomic/org/atomic/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Atomic/org/atomic/game/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Atomic/org/atomic/rendering/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Atomic/org/atomic/rendering/Loader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Atomic/org/atomic/window/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Atomic/org/atomic/window/Window.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Atomic/org/atomic/rendering/Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Atomic/org/atomic/rendering/Renderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/shader/fragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/res/shader/fragmentShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/shader/vertexShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/res/shader/vertexShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/textures/texture.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/textures/texture.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/atomic/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/OBJLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/OBJLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/shaders/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/shaders/ShaderProgram.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/utils/ShaderUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/utils/ShaderUtils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,19 +29,25 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/shader/vertexShader.glsl">
+        <entry file="file://$PROJECT_DIR$/src/org/atomic/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="433">
+              <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/atomic/game/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Loader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="198">
+              <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,13 +63,22 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>system.</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Triple-F &lt;32393151+tr1ple-f@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/model/RawModel.java" />
         <option value="$PROJECT_DIR$/res/shaders/vertexShsF.glsl" />
         <option value="$PROJECT_DIR$/res/shaders/vertexShader.glsl" />
@@ -70,24 +87,31 @@
         <option value="$PROJECT_DIR$/src/org/atomic/textures/ModelTexture.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/model/TexturedModel.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/game/Launcher.java" />
-        <option value="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" />
-        <option value="$PROJECT_DIR$/src/org/atomic/window/Window.java" />
-        <option value="$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java" />
-        <option value="$PROJECT_DIR$/res/shader/fragmentShader.glsl" />
         <option value="$PROJECT_DIR$/src/org/atomic/shaders/ShaderProgram.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/utils/ShaderUtils.java" />
-        <option value="$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/entities/Entity.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/entities/Camera.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/window/Window.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/utils/Maths.java" />
+        <option value="$PROJECT_DIR$/res/models/stall.obj" />
+        <option value="$PROJECT_DIR$/res/models/custom.obj" />
+        <option value="$PROJECT_DIR$/src/org/atomic/entities/Light.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/rendering/OBJLoader.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java" />
         <option value="$PROJECT_DIR$/res/shader/vertexShader.glsl" />
+        <option value="$PROJECT_DIR$/res/shader/fragmentShader.glsl" />
         <option value="$PROJECT_DIR$/src/org/atomic/game/Game.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="546" />
-    <option name="y" value="416" />
-    <option name="width" value="2408" />
-    <option name="height" value="796" />
+    <option name="x" value="320" />
+    <option name="y" value="318" />
+    <option name="width" value="2880" />
+    <option name="height" value="720" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -131,6 +155,20 @@
               <item name="atomic" type="462c0819:PsiDirectoryNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="atomic" type="462c0819:PsiDirectoryNode" />
+              <item name="rendering" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="atomic" type="462c0819:PsiDirectoryNode" />
+              <item name="shaders" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -144,6 +182,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/lwjglx-debug-1.0.0.jar!/" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -154,6 +193,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Finlay\Desktop\workspace\java-info\Atomic\res\models" />
       <recent name="C:\Users\Finlay\Desktop\workspace\java-info\Atomic\res\textures" />
       <recent name="C:\Users\Finlay\Desktop\workspace\java-info\Atomic" />
     </key>
@@ -228,9 +268,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13493334" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09973333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -238,8 +277,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8796248" visible="true" weight="0.17551462" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8796248" weight="0.30227518" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -247,7 +286,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.12037519" side_tool="true" weight="0.17551462" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Inspection Results" order="11" visible="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -259,6 +298,12 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="right" id="Maven" order="8" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Per-Pixel Lighting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Per-Pixel Lighting" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/org/atomic/model/RawModel.java">
@@ -274,16 +319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/shaders/vertexShsF.glsl" />
     <entry file="file://$PROJECT_DIR$/res/shaders/vertex.glsl" />
     <entry file="file://$PROJECT_DIR$/src/org/atomic/utils/ImageUtils.java">
@@ -295,9 +330,6 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/textures/texture.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/atomic/model/TexturedModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -334,70 +366,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/window/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/shader/fragmentShader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/atomic/shaders/ShaderProgram.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
           <caret line="72" column="80" lean-forward="true" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding>
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/utils/Maths.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -414,17 +386,175 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/entities/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1151#1152#0" expanded="true" />
+            <element signature="e#1182#1183#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/entities/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding>
+            <element signature="e#221#222#0" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#774#951#0" expanded="true" />
+            <element signature="e#950#951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/utils/Maths.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="41" column="91" selection-start-line="41" selection-start-column="91" selection-end-line="41" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="7" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/window/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/stall.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/textures/texture.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/models/stall.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="1070" column="22" lean-forward="true" selection-start-line="1070" selection-start-column="22" selection-end-line="1070" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/models/custom.obj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/entities/Light.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding>
+            <element signature="e#173#174#0" expanded="true" />
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#238#239#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/OBJLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="75" column="83" selection-start-line="75" selection-start-column="83" selection-end-line="75" selection-end-column="83" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/shader/fragmentShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/shader/vertexShader.glsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        <state relative-caret-position="323">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/atomic/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state relative-caret-position="433">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

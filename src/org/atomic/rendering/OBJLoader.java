@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class OBJLoader {
@@ -73,7 +72,7 @@ public class OBJLoader {
             for (int i =0; i<indices.size(); i++){
                 indicesArray[i] = indices.get(i);
             }
-            rawModel = loader.loadToVAO(verticesArray, textureArray, indicesArray);
+            rawModel = loader.loadToVAO(verticesArray, textureArray, normalsArray, indicesArray);
         }catch(Exception e){
             e.printStackTrace();
         }
