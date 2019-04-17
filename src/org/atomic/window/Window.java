@@ -44,6 +44,7 @@ public class Window {
         context = GLFW.glfwGetCurrentContext();
         GL.createCapabilities();
         WindowCallbacks.setResizeCallback(window);
+        WindowCallbacks.setKeyCallbacks(window);
         GLFW.glfwSwapInterval(1);
         GLFW.glfwSetWindowIcon(window, ImageUtils.icons());
         cursor = GLFW.glfwCreateCursor(ImageUtils.cursor(), 0, 0);

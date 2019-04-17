@@ -1,5 +1,6 @@
 package org.atomic.game;
 
+import org.atomic.entities.Camera;
 import org.atomic.entities.Entity;
 import org.atomic.model.RawModel;
 import org.atomic.model.TexturedModel;
@@ -7,6 +8,7 @@ import org.atomic.rendering.Loader;
 import org.atomic.rendering.Renderer;
 import org.atomic.shaders.StaticShader;
 import org.atomic.textures.ModelTexture;
+import org.atomic.utils.Maths;
 import org.atomic.window.Window;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -16,6 +18,7 @@ import org.lwjgl.glfw.GLFW;
  */
 public class Game {
 
+    public static Camera camera = new Camera(new Vector3f(0, 0, 0));
     private static float[] vertices = { -0.5f, 0.5f, 0, -0.5f, -0.5f, 0, 0.5f, -0.5f, 0, 0.5f, 0.5f, 0 };
     private static int[] indices = { 0, 1, 3, 2, 0, 3};
     private static float[] texC = { 0, 0, 0, 1, 1, 1, 1, 0};
@@ -32,12 +35,14 @@ public class Game {
         Entity entity = new Entity(tM, new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
 
         while(!GLFW.glfwWindowShouldClose(Window.getWindow())) {
+            Window.update();
+
             renderer.prepare();
             shader.start();
+            shader.loadViewMatrix(Maths.createViewMatrix(camera));
             renderer.render(entity);
-            entity.increaseTranslation(0f, 0f, -0.1f);
+
             shader.stop();
-            Window.update();
         }
 
         Window.exit();
