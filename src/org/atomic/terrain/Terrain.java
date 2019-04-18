@@ -2,7 +2,8 @@ package org.atomic.terrain;
 
 import org.atomic.model.RawModel;
 import org.atomic.rendering.Loader;
-import org.atomic.textures.ModelTexture;
+import org.atomic.textures.TerrainTexture;
+import org.atomic.textures.TerrainTexturePack;
 
 public class Terrain {
 
@@ -12,13 +13,19 @@ public class Terrain {
     private float x;
     private float z;
     private RawModel mesh;
-    private ModelTexture texture;
+    private TerrainTexturePack texture;
+    private TerrainTexture blendMap;
 
-    public Terrain(int gridX, int gridZ, Loader loader, ModelTexture texture){
+    public Terrain(int gridX, int gridZ, Loader loader, TerrainTexturePack texture, TerrainTexture blendMap) {
         this.texture = texture;
+        this.blendMap = blendMap;
         this.x = gridX * SIZE;
         this.z = gridZ * SIZE;
         this.mesh = generateTerrain(loader);
+    }
+
+    public TerrainTexture getBlendMap() {
+        return blendMap;
     }
 
     private RawModel generateTerrain(Loader loader){
@@ -79,7 +86,7 @@ public class Terrain {
         return mesh;
     }
 
-    public ModelTexture getTexture() {
+    public TerrainTexturePack getTexture() {
         return texture;
     }
 }

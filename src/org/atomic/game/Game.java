@@ -11,6 +11,9 @@ import org.atomic.rendering.OBJLoader;
 import org.atomic.rendering.ViewConfig;
 import org.atomic.terrain.Terrain;
 import org.atomic.textures.ModelTexture;
+import org.atomic.textures.TerrainTexture;
+import org.atomic.textures.TerrainTexturePack;
+import org.atomic.utils.ImageUtils;
 import org.atomic.window.Window;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -38,8 +41,13 @@ public class Game {
         //Entities
         Entity entity = new Entity(tM, new Vector3f(0, -2, -5), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
         Light light = new Light(new Vector3f(200, 200, 100), new Vector3f(0.8f, 0.8f, 0.8f));
-        Terrain terrain = new Terrain(0, 0, loader, new ModelTexture(loader.loadTexture("res/textures/texture.png")));
-        Terrain terrain2 = new Terrain(1, 0, loader, texture);
+        TerrainTexture t0 = new TerrainTexture(loader.loadTexture(ImageUtils.readImage("res/textures/blend_map.png")));
+        TerrainTexture t1 = new TerrainTexture(loader.loadTexture(ImageUtils.crop(ImageUtils.readImage("res/textures/icons.png"), 128 + 64, 0, 32, 32)));
+        TerrainTexture t2 = new TerrainTexture(loader.loadTexture(ImageUtils.crop(ImageUtils.readImage("res/textures/icons.png"), 128, 0, 64, 64)));
+        TerrainTexture t3 = new TerrainTexture(loader.loadTexture(ImageUtils.crop(ImageUtils.readImage("res/textures/icons.png"), 0, 0, 128, 128)));
+        TerrainTexture t4 = new TerrainTexture(loader.loadTexture(ImageUtils.readImage("res/textures/texture.png")));
+        TerrainTexturePack ttp = new TerrainTexturePack(t4, t1, t2, t3);
+        Terrain terrain = new Terrain(0, 0, loader, ttp, t0);
 
         //EntitiyRenderer
         MasterRenderer masterRenderer = new MasterRenderer(config);
@@ -49,7 +57,6 @@ public class Game {
             Window.update();
 
             masterRenderer.processTerrain(terrain);
-            masterRenderer.processTerrain(terrain2);
             masterRenderer.processEntity(entity);
             masterRenderer.render(light, camera);
         }

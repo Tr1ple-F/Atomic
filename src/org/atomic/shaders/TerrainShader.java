@@ -17,6 +17,11 @@ public class TerrainShader extends ShaderProgram {
     private int location_reflectivity;
     private int location_shineDamper;
     private int location_skyColor;
+    private int location_blendMap;
+    private int location_baseMap;
+    private int location_rMap;
+    private int location_gMap;
+    private int location_bMap;
 
     public TerrainShader(String vertexShader, String fragmentShader) {
         super(vertexShader, fragmentShader);
@@ -32,6 +37,11 @@ public class TerrainShader extends ShaderProgram {
         location_reflectivity = super.getUniformLocation("reflectivity");
         location_shineDamper = super.getUniformLocation("shineDamper");
         location_skyColor = super.getUniformLocation("skyColor");
+        location_blendMap = super.getUniformLocation("blendMap");
+        location_baseMap = super.getUniformLocation("baseMap");
+        location_rMap = super.getUniformLocation("rMap");
+        location_gMap = super.getUniformLocation("gMap");
+        location_bMap = super.getUniformLocation("bMap");
     }
 
     @Override
@@ -46,6 +56,13 @@ public class TerrainShader extends ShaderProgram {
         super.loadFloat(location_reflectivity, reflectivity);
     }
 
+    public void loadSampler() {
+        super.loadInt(location_blendMap, 0);
+        super.loadInt(location_rMap, 1);
+        super.loadInt(location_gMap, 2);
+        super.loadInt(location_bMap, 3);
+        super.loadInt(location_baseMap, 4);
+    }
 
     public void loadSkyColor(float r, float g, float b){
         super.loadVector(location_skyColor, new Vector3f(r,g,b));
