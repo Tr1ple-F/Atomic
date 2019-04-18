@@ -1,9 +1,13 @@
 package org.atomic.game;
 
-import org.atomic.entities.*;
+import org.atomic.entities.Camera;
+import org.atomic.entities.Entity;
+import org.atomic.entities.Light;
 import org.atomic.model.RawModel;
 import org.atomic.model.TexturedModel;
-import org.atomic.rendering.*;
+import org.atomic.rendering.Loader;
+import org.atomic.rendering.MasterRenderer;
+import org.atomic.rendering.OBJLoader;
 import org.atomic.textures.ModelTexture;
 import org.atomic.window.Window;
 import org.joml.Vector3f;
@@ -31,7 +35,7 @@ public class Game {
         Entity entity = new Entity(tM, new Vector3f(0, -2, -5), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
         Light light = new Light(new Vector3f(200, 200, 100), new Vector3f(0.8f, 0.8f, 0.8f));
 
-        //Renderer
+        //EntitiyRenderer
         MasterRenderer masterRenderer = new MasterRenderer();
 
         //Game loop

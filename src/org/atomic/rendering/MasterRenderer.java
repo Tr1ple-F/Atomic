@@ -15,16 +15,16 @@ import java.util.Map;
 public class MasterRenderer {
 
     private StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
-    private Renderer renderer = new Renderer(shader, 90, 0.1f, 1000);
+    private EntitiyRenderer entitiyRenderer = new EntitiyRenderer(shader, new ViewConfig(90, 0.1f, 1000f));
 
     private Map<TexturedModel, List<Entity>> entities = new HashMap<>();
 
     public void render(Light sun, Camera camera){
-        renderer.prepare();
+        entitiyRenderer.prepare();
         shader.start();
         shader.loadLight(sun);
         shader.loadViewMatrix(Maths.createViewMatrix(camera));
-        renderer.render(entities);
+        entitiyRenderer.render(entities);
         shader.stop();
         entities.clear();
     }

@@ -19,22 +19,18 @@ import java.util.Map;
 /**
  * Created by Tr1ple-F on the 16.04.2019
  */
-public class Renderer {
+public class EntitiyRenderer {
 
     private StaticShader shaderProgram;
-    private final float FOV;
-    private final float NEAR_PLANE;
-    private final float FAR_PLANE;
     private Matrix4f projectionMatrix;
+    private ViewConfig viewConfig;
 
-    public Renderer(StaticShader shaderProgram, float FOV, float NEAR_PLANE, float FAR_PLANE) {
+    public EntitiyRenderer(StaticShader shaderProgram, ViewConfig viewConfig){
         GL11.glEnable(GL11.GL_CULL_FACE);
         GL11.glCullFace(GL11.GL_BACK);
         this.shaderProgram = shaderProgram;
-        this.FOV = FOV;
-        this.NEAR_PLANE = NEAR_PLANE;
-        this.FAR_PLANE = FAR_PLANE;
-        projectionMatrix = Maths.createProjectionMatrix(FOV, NEAR_PLANE, FAR_PLANE);
+        this.viewConfig = viewConfig;
+        projectionMatrix = Maths.createProjectionMatrix(viewConfig.getFOV(), viewConfig.getNEAR_PLANE(), viewConfig.getFAR_PLANE());
         shaderProgram.start();
         shaderProgram.loadProjectionMatrix(projectionMatrix);
         shaderProgram.stop();
@@ -85,16 +81,8 @@ public class Renderer {
         shaderProgram.loadTransformationMatrix(m);
     }
 
-    public float getFOV() {
-        return FOV;
-    }
-
-    public float getNEAR_PLANE() {
-        return NEAR_PLANE;
-    }
-
-    public float getFAR_PLANE() {
-        return FAR_PLANE;
+    public ViewConfig getViewConfig() {
+        return viewConfig;
     }
 
     public Matrix4f getProjectionMatrix() {
