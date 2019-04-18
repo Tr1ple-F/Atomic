@@ -5,7 +5,11 @@ import org.atomic.entities.Entity;
 import org.atomic.entities.Light;
 import org.atomic.model.TexturedModel;
 import org.atomic.shaders.StaticShader;
+import org.atomic.shaders.TerrainShader;
+import org.atomic.terrain.Terrain;
 import org.atomic.utils.Maths;
+import org.atomic.window.Window;
+import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,19 +18,48 @@ import java.util.Map;
 
 public class MasterRenderer {
 
-    private StaticShader shader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
-    private EntitiyRenderer entitiyRenderer = new EntitiyRenderer(shader, new ViewConfig(90, 0.1f, 1000f));
+    private StaticShader sShader = new StaticShader(StaticShader.baseVS, StaticShader.baseFS);
+    private TerrainShader tShader = new TerrainShader(TerrainShader.baseVS, TerrainShader.baseFS);
+    private ViewConfig viewConfig;
+    private EntitiyRenderer entitiyRenderer;
+    private TerrainRenderer terrainRenderer;
+
+    public MasterRenderer(ViewConfig viewConfig){
+        this.viewConfig = viewConfig;
+        entitiyRenderer = new EntitiyRenderer(sShader, viewConfig);
+        terrainRenderer = new TerrainRenderer(tShader, viewConfig);
+        GL11.glEnable(GL11.GL_CULL_FACE);
+        GL11.glCullFace(GL11.GL_BACK);
+    }
 
     private Map<TexturedModel, List<Entity>> entities = new HashMap<>();
+    private List<Terrain> terrains = new ArrayList<>();
 
     public void render(Light sun, Camera camera){
-        entitiyRenderer.prepare();
-        shader.start();
-        shader.loadLight(sun);
-        shader.loadViewMatrix(Maths.createViewMatrix(camera));
+        prepare();
+        sShader.start();
+        sShader.loadLight(sun);
+        sShader.loadViewMatrix(Maths.createViewMatrix(camera));
         entitiyRenderer.render(entities);
-        shader.stop();
+        sShader.stop();
+        tShader.start();
+        tShader.loadLight(sun);
+        tShader.loadViewMatrix(Maths.createViewMatrix(camera));
+        terrainRenderer.render(terrains);
+        tShader.stop();
         entities.clear();
+        terrains.clear();
+    }
+
+    public void prepare(){
+        GL11.glEnable(GL11.GL_DEPTH_TEST);
+        GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
+        GL11.glClearColor(Window.getnBaseRGB()[0], Window.getnBaseRGB()[1], Window.getnBaseRGB()[2], Window.getnBaseRGB()[3]);
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+    }
+
+    public void processTerrain(Terrain terrain){
+        terrains.add(terrain);
     }
 
     public void processEntity(Entity entity){
@@ -41,8 +74,12 @@ public class MasterRenderer {
         }
     }
 
+    public ViewConfig getViewConfig(){
+        return viewConfig;
+    }
+
     public void cleanUp(){
-        shader.clean();
+        sShader.clean();tShader.clean();
     }
 
 }

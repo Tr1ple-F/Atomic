@@ -1,30 +1,26 @@
 package org.atomic.rendering;
 
-import org.atomic.entities.Entity;
 import org.atomic.model.RawModel;
-import org.atomic.model.TexturedModel;
-import org.atomic.shaders.StaticShader;
+import org.atomic.shaders.TerrainShader;
+import org.atomic.terrain.Terrain;
 import org.atomic.textures.ModelTexture;
 import org.atomic.utils.Maths;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL13;
 import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 
 import java.util.List;
-import java.util.Map;
 
-/**
- * Created by Tr1ple-F on the 16.04.2019
- */
-public class EntitiyRenderer {
+public class TerrainRenderer {
 
-    private StaticShader shaderProgram;
-    private Matrix4f projectionMatrix;
+    private TerrainShader shaderProgram;
     private ViewConfig viewConfig;
+    private Matrix4f projectionMatrix;
 
-    public EntitiyRenderer(StaticShader shaderProgram, ViewConfig viewConfig){
+    public TerrainRenderer(TerrainShader shaderProgram, ViewConfig viewConfig){
         this.shaderProgram = shaderProgram;
         this.viewConfig = viewConfig;
         projectionMatrix = Maths.createProjectionMatrix(viewConfig.getFOV(), viewConfig.getNEAR_PLANE(), viewConfig.getFAR_PLANE());
@@ -33,30 +29,27 @@ public class EntitiyRenderer {
         shaderProgram.stop();
     }
 
-    public void render(Map<TexturedModel, List<Entity>> entities){
-        for (TexturedModel model : entities.keySet()){
-            prepareTexturedModel(model);
-            List<Entity> batch = entities.get(model);
-            for(Entity entity : batch){
-                prepareInstance(entity);
-                GL11.glDrawElements(GL11.GL_TRIANGLES, model.getRawModel().getVertices(), GL11.GL_UNSIGNED_INT, 0);
-            }
+    public void render(List<Terrain> terrains){
+        for(Terrain terrain : terrains){
+            prepareTerrain(terrain);
+            loadModelMatrix(terrain);
+            GL11.glDrawElements(GL11.GL_TRIANGLES, terrain.getMesh().getVertices(), GL11.GL_UNSIGNED_INT, 0);
             unbindModel();
         }
     }
 
-    private void prepareTexturedModel(TexturedModel texturedModel){
+    private void prepareTerrain(Terrain terrain){
         //Model data
-        RawModel model = texturedModel.getRawModel();
+        RawModel model = terrain.getMesh();
         GL30.glBindVertexArray(model.getVaoID());
         GL20.glEnableVertexAttribArray(0);
         GL20.glEnableVertexAttribArray(1);
         GL20.glEnableVertexAttribArray(2);
         //Texture stuff
-        ModelTexture texture = texturedModel.getTexture();
+        ModelTexture texture = terrain.getTexture();
         shaderProgram.loadShineValues(texture.getShineDamper(), texture.getReflectivity());
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
-        GL11.glBindTexture(GL11.GL_TEXTURE_2D, texturedModel.getTexture().getTextureID());
+        GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture.getTextureID());
     }
 
     private void unbindModel(){
@@ -66,12 +59,13 @@ public class EntitiyRenderer {
         GL30.glBindVertexArray(0);
     }
 
-    private void prepareInstance(Entity entity) {
-        Matrix4f m = Maths.createTransformationMatrix(entity.getTranslation(), entity.getRotation(), entity.getScale());
+    private void loadModelMatrix(Terrain terrain) {
+        Matrix4f m = Maths.createTransformationMatrix(new Vector3f(terrain.getX(), 0, terrain.getZ()), new Vector3f(0,0,0), new Vector3f(1,1,1));
         shaderProgram.loadTransformationMatrix(m);
     }
 
     public ViewConfig getViewConfig() {
         return viewConfig;
     }
+
 }
