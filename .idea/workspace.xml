@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1994193-c46d-40dd-ab30-4a477c939327" name="Default" comment="View Config">
-      <change afterPath="$PROJECT_DIR$/res/shader/terrainFShader.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/shader/terrainVShader.glsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/atomic/rendering/TerrainRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/org/atomic/shaders/TerrainShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/EntitiyRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/EntitiyRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/MasterRenderer.java" afterDir="false" />
+    <list default="true" id="f1994193-c46d-40dd-ab30-4a477c939327" name="Default" comment="Terrain Rendering">
+      <change beforePath="$PROJECT_DIR$/res/shader/terrainVShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/res/shader/terrainVShader.glsl" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/atomic/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="129">
@@ -31,6 +24,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/shader/terrainVShader.glsl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -92,18 +94,19 @@
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/Renderer.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/terrain/Terrain.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/ViewConfig.java" />
-        <option value="$PROJECT_DIR$/res/shader/terrainVShader.glsl" />
         <option value="$PROJECT_DIR$/res/shader/terrainFShader.glsl" />
         <option value="$PROJECT_DIR$/src/org/atomic/shaders/TerrainShader.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/EntitiyRenderer.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/TerrainRenderer.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/MasterRenderer.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/game/Game.java" />
+        <option value="$PROJECT_DIR$/res/shader/terrainVShader.glsl" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-142" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-70" />
+    <option name="y" value="334" />
     <option name="width" value="3870" />
     <option name="height" value="2020" />
   </component>
@@ -123,34 +126,18 @@
             <path>
               <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
               <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="shader" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
               <item name="Atomic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="rendering" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -261,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555576615435</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Terrain Rendering">
+      <created>1555578578194</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555578578194</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -274,10 +268,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-71" y="0" width="1935" height="1010" extended-state="0" />
+    <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10175812" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10186667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -286,7 +280,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8796248" visible="true" weight="0.25795454" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8796248" visible="true" weight="0.24593717" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39565217" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -351,7 +345,8 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Per-Pixel Lighting" />
     <MESSAGE value="View Config" />
-    <option name="LAST_COMMIT_MESSAGE" value="View Config" />
+    <MESSAGE value="Terrain Rendering" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terrain Rendering" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -640,13 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/shader/terrainVShader.glsl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -709,6 +697,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/shader/terrainVShader.glsl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
         </state>
       </provider>
     </entry>
