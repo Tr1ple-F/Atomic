@@ -57,6 +57,7 @@ public class EntitiyRenderer {
         if(texture.isTransparent()){
             MasterRenderer.disableCulling();
         }
+        shaderProgram.loadFakeLighting(texture.shouldUseFakeLighting());
         shaderProgram.loadShineValues(texture.getShineDamper(), texture.getReflectivity());
         GL13.glActiveTexture(GL13.GL_TEXTURE0);
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, texturedModel.getTexture().getTextureID());

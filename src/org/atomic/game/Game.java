@@ -28,8 +28,9 @@ public class Game {
 
         //Model
         Loader loader = new Loader();
-        RawModel model = OBJLoader.loadObjModel("res/models/dragon.obj", loader);
+        RawModel model = OBJLoader.loadObjModel("res/models/grassModel.obj", loader);
         ModelTexture texture = new ModelTexture(loader.loadTexture("res/textures/texture.png"));
+        texture.setUseFakeLighting(true);
         texture.setReflectivity(1);
         texture.setShineDamper(10);
         TexturedModel tM = new TexturedModel(model, texture);
