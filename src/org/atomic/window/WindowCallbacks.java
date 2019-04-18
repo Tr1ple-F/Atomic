@@ -40,6 +40,9 @@ public class WindowCallbacks {
                 if(key == GLFW.GLFW_KEY_UP){
                     Game.camera.move(0f, 1f,0);
                 }
+                if(key == GLFW.GLFW_KEY_DOWN){
+                    Game.camera.move(0f, -1f,0);
+                }
             }
         });
     }

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1994193-c46d-40dd-ab30-4a477c939327" name="Default" comment="Terrain tiling">
-      <change beforePath="$PROJECT_DIR$/res/shader/fragmentShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/res/shader/fragmentShader.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/shader/terrainFShader.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/res/shader/terrainFShader.glsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/atomic/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/EntitiyRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/EntitiyRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/MasterRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/atomic/textures/ModelTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/textures/ModelTexture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,8 +21,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/atomic/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="328">
+              <caret line="39" column="111" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Loader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="42" column="105" selection-start-line="42" selection-start-column="105" selection-end-line="42" selection-end-column="105" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,20 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/TerrainRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+            <state relative-caret-position="623">
+              <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +101,6 @@
         <option value="$PROJECT_DIR$/res/models/stall.obj" />
         <option value="$PROJECT_DIR$/res/models/custom.obj" />
         <option value="$PROJECT_DIR$/src/org/atomic/entities/Light.java" />
-        <option value="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/OBJLoader.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/shaders/StaticShader.java" />
         <option value="$PROJECT_DIR$/res/shader/vertexShader.glsl" />
@@ -120,6 +115,7 @@
         <option value="$PROJECT_DIR$/src/org/atomic/textures/ModelTexture.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/MasterRenderer.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/rendering/EntitiyRenderer.java" />
+        <option value="$PROJECT_DIR$/src/org/atomic/rendering/Loader.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java" />
         <option value="$PROJECT_DIR$/src/org/atomic/game/Game.java" />
       </list>
@@ -165,34 +161,6 @@
               <item name="Atomic" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="atomic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="rendering" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Atomic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atomic" type="462c0819:PsiDirectoryNode" />
-              <item name="window" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,7 +301,7 @@
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10186667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10186667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -342,12 +310,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8796248" visible="true" weight="0.058504876" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8796248" visible="true" weight="0.058504876" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39565217" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.56229687" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.12037519" side_tool="true" weight="0.17551462" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
@@ -536,16 +504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="75" column="83" selection-start-line="75" selection-start-column="83" selection-end-line="75" selection-end-column="83" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-776">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -748,8 +706,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/atomic/window/WindowCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="623">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/atomic/rendering/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="42" column="105" selection-start-line="42" selection-start-column="105" selection-end-line="42" selection-end-column="105" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -758,8 +726,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/atomic/game/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="328">
+          <caret line="39" column="111" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
