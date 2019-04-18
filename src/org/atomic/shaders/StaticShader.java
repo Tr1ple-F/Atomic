@@ -2,6 +2,7 @@ package org.atomic.shaders;
 
 import org.atomic.entities.Light;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 
 public class StaticShader extends ShaderProgram {
 
@@ -16,6 +17,7 @@ public class StaticShader extends ShaderProgram {
     private int location_reflectivity;
     private int location_shineDamper;
     private int location_fakeLighting;
+    private int location_skyColor;
 
     public StaticShader(String vertexShader, String fragmentShader){
          super(vertexShader, fragmentShader);
@@ -31,6 +33,7 @@ public class StaticShader extends ShaderProgram {
         location_reflectivity = super.getUniformLocation("reflectivity");
         location_shineDamper = super.getUniformLocation("shineDamper");
         location_fakeLighting = super.getUniformLocation("useFakeLighting");
+        location_skyColor = super.getUniformLocation("skyColor");
     }
 
     @Override
@@ -38,6 +41,10 @@ public class StaticShader extends ShaderProgram {
         super.bindAttribute(0, "position");
         super.bindAttribute(1, "textureCoord");
         super.bindAttribute(2, "normal");
+    }
+
+    public void loadSkyColor(float r, float g, float b){
+        super.loadVector(location_skyColor, new Vector3f(r,g,b));
     }
 
     public void loadShineValues(float damper, float reflectivity){

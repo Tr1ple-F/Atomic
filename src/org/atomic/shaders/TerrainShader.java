@@ -2,6 +2,7 @@ package org.atomic.shaders;
 
 import org.atomic.entities.Light;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
 
 public class TerrainShader extends ShaderProgram {
 
@@ -15,7 +16,7 @@ public class TerrainShader extends ShaderProgram {
     private int location_lightColor;
     private int location_reflectivity;
     private int location_shineDamper;
-
+    private int location_skyColor;
 
     public TerrainShader(String vertexShader, String fragmentShader) {
         super(vertexShader, fragmentShader);
@@ -30,6 +31,7 @@ public class TerrainShader extends ShaderProgram {
         location_lightColor = super.getUniformLocation("lightColor");
         location_reflectivity = super.getUniformLocation("reflectivity");
         location_shineDamper = super.getUniformLocation("shineDamper");
+        location_skyColor = super.getUniformLocation("skyColor");
     }
 
     @Override
@@ -42,6 +44,11 @@ public class TerrainShader extends ShaderProgram {
     public void loadShineValues(float damper, float reflectivity) {
         super.loadFloat(location_shineDamper, damper);
         super.loadFloat(location_reflectivity, reflectivity);
+    }
+
+
+    public void loadSkyColor(float r, float g, float b){
+        super.loadVector(location_skyColor, new Vector3f(r,g,b));
     }
 
     public void loadViewMatrix(Matrix4f matrix) {

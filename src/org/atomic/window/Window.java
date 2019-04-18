@@ -1,6 +1,7 @@
 package org.atomic.window;
 
 import org.atomic.utils.ImageUtils;
+import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryUtil;
@@ -16,7 +17,7 @@ public class Window {
     private static long cursor;
     private static int width = 1920;
     private static int height = 1080;
-    private static float[] nBaseRGB = {0.1f, 0.3f, 0.5f, 1f};
+    private static Vector3f nBaseRGB = new Vector3f(0.1f, 0.3f, 0.5f);
 
     public static void init(){
         //Error
@@ -93,14 +94,11 @@ public class Window {
         Window.height = height;
     }
 
-    public static void setnBaseRGB(float[] nBaseRGB) {
-        if(nBaseRGB.length != 4){
-            throw new IllegalArgumentException("Unable to force nBaseRBG at Window into format/length: " + nBaseRGB.length);
-        }
-        Window.nBaseRGB = nBaseRGB;
+    public static void setnBaseRGB(Vector3f newVec) {
+        Window.nBaseRGB = newVec;
     }
 
-    public static float[] getnBaseRGB() {
+    public static Vector3f getnBaseRGB() {
         return nBaseRGB;
     }
 }

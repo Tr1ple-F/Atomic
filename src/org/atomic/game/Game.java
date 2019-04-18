@@ -38,7 +38,7 @@ public class Game {
         //Entities
         Entity entity = new Entity(tM, new Vector3f(0, -2, -5), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1));
         Light light = new Light(new Vector3f(200, 200, 100), new Vector3f(0.8f, 0.8f, 0.8f));
-        Terrain terrain = new Terrain(0, 0, loader, new ModelTexture(loader.loadTexture("res/textures/icons.png")));
+        Terrain terrain = new Terrain(0, 0, loader, new ModelTexture(loader.loadTexture("res/textures/texture.png")));
         Terrain terrain2 = new Terrain(1, 0, loader, texture);
 
         //EntitiyRenderer

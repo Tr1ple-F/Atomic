@@ -37,6 +37,8 @@ public class MasterRenderer {
     public void render(Light sun, Camera camera){
         prepare();
         sShader.start();
+        tShader.loadSkyColor(Window.getnBaseRGB().x, Window.getnBaseRGB().y, Window.getnBaseRGB().z);
+        sShader.loadSkyColor(Window.getnBaseRGB().x, Window.getnBaseRGB().y, Window.getnBaseRGB().z);
         sShader.loadLight(sun);
         sShader.loadViewMatrix(Maths.createViewMatrix(camera));
         entitiyRenderer.render(entities);
@@ -62,7 +64,7 @@ public class MasterRenderer {
     public void prepare(){
         GL11.glEnable(GL11.GL_DEPTH_TEST);
         GL11.glClear(GL11.GL_DEPTH_BUFFER_BIT);
-        GL11.glClearColor(Window.getnBaseRGB()[0], Window.getnBaseRGB()[1], Window.getnBaseRGB()[2], Window.getnBaseRGB()[3]);
+        GL11.glClearColor(Window.getnBaseRGB().x, Window.getnBaseRGB().y, Window.getnBaseRGB().z, 1f);
         GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
     }
 
